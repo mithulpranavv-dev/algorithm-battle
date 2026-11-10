@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define N          40      /* number of records in the dataset */
-#define TABLE_SIZE 53      /* prime number, load factor = 40/53 = 0.75 */
+#define N          40     
+#define TABLE_SIZE 53     
 
 typedef struct {
     int  id;
