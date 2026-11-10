@@ -1,0 +1,128 @@
+
+==========================================================
+ DATASET ORDER: HIRING ORDER (ascending, as IDs are issued)
+==========================================================
+
+BST inorder   (sorted): 1005 1012 1020 1033 1041 1058 1062 1077 1085 1091 1104 1117 1123 1139 1146 1152 1168 1175 1183 1199 1204 1216 1227 1231 1249 1258 1263 1274 1288 1295 1302 1319 1326 1337 1344 1351 1369 1378 1385 1392 
+BST preorder          : 1005 1012 1020 1033 1041 1058 1062 1077 1085 1091 1104 1117 1123 1139 1146 1152 1168 1175 1183 1199 1204 1216 1227 1231 1249 1258 1263 1274 1288 1295 1302 1319 1326 1337 1344 1351 1369 1378 1385 1392 
+BST postorder         : 1392 1385 1378 1369 1351 1344 1337 1326 1319 1302 1295 1288 1274 1263 1258 1249 1231 1227 1216 1204 1199 1183 1175 1168 1152 1146 1139 1123 1117 1104 1091 1085 1077 1062 1058 1041 1033 1020 1012 1005 
+
+AVL inorder   (sorted): 1005 1012 1020 1033 1041 1058 1062 1077 1085 1091 1104 1117 1123 1139 1146 1152 1168 1175 1183 1199 1204 1216 1227 1231 1249 1258 1263 1274 1288 1295 1302 1319 1326 1337 1344 1351 1369 1378 1385 1392 
+AVL preorder          : 1152 1077 1033 1012 1005 1020 1058 1041 1062 1117 1091 1085 1104 1139 1123 1146 1319 1231 1199 1175 1168 1183 1216 1204 1227 1274 1258 1249 1263 1295 1288 1302 1351 1337 1326 1344 1378 1369 1385 1392 
+
+Hash table (size 53, h(k) = k % 53, linear probing):
+  slot  0 -> 1378
+  slot  1 -> 1326
+  slot  2 -> 1062
+  slot  3 -> 1168   (home slot 2, displaced)
+  slot  4 -> 1117
+  slot  5 -> 1012
+  slot  6 -> 1274   (home slot 2, displaced)
+  slot  7 -> 1385
+  slot  8 -> 1227
+  slot  9 -> 1175
+  slot 10 -> 1123
+  slot 12 -> 1231
+  slot 13 -> 1020
+  slot 14 -> 1337   (home slot 12, displaced)
+  slot 15 -> 1392   (home slot 14, displaced)
+  slot 16 -> 1288
+  slot 17 -> 1077
+  slot 18 -> 1183   (home slot 17, displaced)
+  slot 19 -> 1344
+  slot 23 -> 1295
+  slot 25 -> 1085
+  slot 26 -> 1033
+  slot 27 -> 1139   (home slot 26, displaced)
+  slot 28 -> 1351   (home slot 26, displaced)
+  slot 30 -> 1249
+  slot 31 -> 1091
+  slot 32 -> 1302   (home slot 30, displaced)
+  slot 33 -> 1146
+  slot 34 -> 1041
+  slot 35 -> 1199   (home slot 33, displaced)
+  slot 38 -> 1204
+  slot 39 -> 1152
+  slot 40 -> 1258   (home slot 39, displaced)
+  slot 44 -> 1104
+  slot 45 -> 1263   (home slot 44, displaced)
+  slot 46 -> 1369   (home slot 44, displaced)
+  slot 47 -> 1319
+  slot 50 -> 1216
+  slot 51 -> 1005
+  slot 52 -> 1058   (home slot 51, displaced)
+
+SUCCESSFUL SEARCH (comparisons)
+Key        BST   AVL  Hashing
+1005         1     5        1
+1146        15     5        1
+1263        27     6        2
+1337        34     4        3
+1392        40     6        2
+1062         7     5        1
+1216        22     5        1
+1319        32     2        1
+AVERAGE  22.25  4.75     1.50
+
+UNSUCCESSFUL SEARCH (comparisons)
+Key        BST   AVL  Hashing
+1000         1     5        3
+1100        11     5        2
+1200        21     6        3
+1300        31     6        2
+1400        40     6        1
+1250        26     6        6
+1010         2     5        9
+1999        40     6        4
+AVERAGE  21.50  5.62     3.75
+
+INSERT NEW KEY 1400 -> BST: 40 cmp | AVL: 6 cmp | Hashing: 1 probe(s)
+
+SUMMARY
+  Total insertion comparisons (40 records): BST=780  AVL=177  Hashing=61
+  Height  : BST=40  AVL=6   (ideal minimum for 40 nodes = 6)
+  AVL rotations performed: 34
+  Hash collisions during the 40 insertions: 21   (load factor = 0.75)
+
+==========================================================
+ DATASET ORDER: RANDOM ORDER (shuffled, fixed seed 42)
+==========================================================
+
+SUCCESSFUL SEARCH (comparisons)
+Key        BST   AVL  Hashing
+1005         4     6        1
+1146         5     5        3
+1263         7     4        3
+1337         5     6        1
+1392         4     5        2
+1062         6     5        2
+1216         8     4        1
+1319         7     6        1
+AVERAGE   5.75  5.12     1.75
+
+UNSUCCESSFUL SEARCH (comparisons)
+Key        BST   AVL  Hashing
+1000         4     6        3
+1100         8     5        2
+1200         9     6        3
+1300         8     5        2
+1400         4     5        1
+1250         8     5        6
+1010         6     7        9
+1999         4     5        4
+AVERAGE   6.38  5.50     3.75
+
+INSERT NEW KEY 1400 -> BST: 4 cmp | AVL: 5 cmp | Hashing: 1 probe(s)
+
+SUMMARY
+  Total insertion comparisons (40 records): BST=184  AVL=170  Hashing=61
+  Height  : BST=9  AVL=7   (ideal minimum for 40 nodes = 6)
+  AVL rotations performed: 28
+  Hash collisions during the 40 insertions: 21   (load factor = 0.75)
+
+----------------------------------------------------------
+ VIVA DEMO: search for new key 1234
+----------------------------------------------------------
+BST     : NOT FOUND in 25 comparisons
+AVL     : NOT FOUND in 6 comparisons
+Hashing : NOT FOUND in 6 probes (home slot 15)
